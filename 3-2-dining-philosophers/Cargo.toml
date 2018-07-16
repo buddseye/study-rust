@@ -1,0 +1,10 @@
+[package]
+name = "dining-philosophers"
+version = "0.1.0"
+authors = ["shun"]
+
+[dependencies]
+
+[[bin]]
+name = "dining-philosophers"
+path = "main.rs"

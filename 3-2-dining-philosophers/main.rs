@@ -1,28 +1,38 @@
 // https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/dining-philosophers.html
 
-// \‘¢‘Ì
+// æ§‹é€ ä½“
 struct Philosopher {
    name: String,
 }
 
-// Philosopher ‚Ì’è‹`
+// Philosopher ã®å®šç¾©
 impl Philosopher {
-   // ŠÖ˜AŠÖ”‚Ì’è‹`
-   // str ‚ÍƒvƒŠƒ~ƒeƒBƒuŒ^A String ‚Í•W€ƒ‰ƒCƒuƒ‰ƒŠ
-   // str ‚Í u8 ‚ÌƒXƒ‰ƒCƒX‚ÅŒÅ’è’·A String ‚Í u8 ‚ÌƒxƒNƒ^‚Å‰Â•Ï’·
+   // é–¢é€£é–¢æ•°ã®å®šç¾©
+   // str ã¯ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ã€ String ã¯æ¨™æº–ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+   // str ã¯ u8 ã®ã‚¹ãƒ©ã‚¤ã‚¹ã§å›ºå®šé•·ã€ String ã¯ u8 ã®ãƒ™ã‚¯ã‚¿ã§å¯å¤‰é•·
    fn new(name: &str) -> Philosopher {
-       // ÅŒã‚Ì®‚ª©“®“I‚É–ß‚è’l‚Æ‚È‚é
+       // æœ€å¾Œã®å¼ãŒè‡ªå‹•çš„ã«æˆ»ã‚Šå€¤ã¨ãªã‚‹
        Philosopher {
-           // to_string ‚ÅÀ‘ÌƒRƒs[‚ğs‚Á‚Ä‚¢‚é
+           // to_string ã§å®Ÿä½“ã‚³ãƒ”ãƒ¼ã‚’è¡Œã£ã¦ã„ã‚‹
            name: name.to_string(),
        }
+   }
+
+   fn eat(&self) {
+       println!("{} is done eating.", self.name);
    }
 }
 
 fn main() {
-   let p1 = Philosopher::new("Judith Butler");
-   let p2 = Philosopher::new("Gilles Deleuze");
-   let p3 = Philosopher::new("Karl Marx");
-   let p4 = Philosopher::new("Emma Goldman");
-   let p5 = Philosopher::new("Michel Foucault");
+    // ãƒ™ã‚¯ã‚¿é…åˆ—Vec<T>
+    let philosophers = vec![
+        Philosopher::new("Judith Butler"),
+        Philosopher::new("Gilles Deleuze"),
+        Philosopher::new("Karl Marx"),
+        Philosopher::new("Emma Goldman"),
+        Philosopher::new("Michel Foucault"),
+    ];
+    for p in &philosophers {
+        p.eat();
+    }
 }

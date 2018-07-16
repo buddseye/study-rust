@@ -1,30 +1,30 @@
 // https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/guessing-game.html
 
-// use std::io::stdin; ‚È‚ñ‚Ä‚±‚Æ‚à‚Å‚«‚é
+// use std::io::stdin; ãªã‚“ã¦ã“ã¨ã‚‚ã§ãã‚‹
 use std::io;
 
-// python ‚Å‚¢‚¤ def ‚ª rust ‚Ì fn
-// c++ “¯—l {} ‚ÅƒXƒR[ƒv‚ðŽw’èBs’[‚Í ;
+// python ã§ã„ã† def ãŒ rust ã® fn
+// c++ åŒæ§˜ {} ã§ã‚¹ã‚³ãƒ¼ãƒ—ã‚’æŒ‡å®šã€‚è¡Œç«¯ã¯ ;
 fn main()
 {
-   // println! ‚Íƒ}ƒNƒ
+   // println! ã¯ãƒžã‚¯ãƒ­
    println!("Guess the number!");
-   // let ‚Í‘©”›•Ï”‚Ì’è‹`BƒCƒ~ƒ…[ƒ^ƒuƒ‹‚È•Ï”‚ð’è‹`‚·‚é
-   // mut ‚Åƒ~ƒ…[ƒ^ƒuƒ‹‚É•ÏX‰Â”\
-   // String ‚Í•W€ƒ‰ƒCƒuƒ‰ƒŠ‚ª’ñ‹ŸBString::new() ‚ÍƒXƒ^ƒeƒBƒbƒNƒƒ\ƒbƒh
+   // let ã¯æŸç¸›å¤‰æ•°ã®å®šç¾©ã€‚ã‚¤ãƒŸãƒ¥ãƒ¼ã‚¿ãƒ–ãƒ«ãªå¤‰æ•°ã‚’å®šç¾©ã™ã‚‹
+   // mut ã§ãƒŸãƒ¥ãƒ¼ã‚¿ãƒ–ãƒ«ã«å¤‰æ›´å¯èƒ½
+   // String ã¯æ¨™æº–ãƒ©ã‚¤ãƒ–ãƒ©ãƒªãŒæä¾›ã€‚String::new() ã¯ã‚¹ã‚¿ãƒ†ã‚£ãƒƒã‚¯ãƒ¡ã‚½ãƒƒãƒ‰
    let mut guess = String::new();
-   // read_line ‚Íƒƒ\ƒbƒhBƒCƒ“ƒXƒ^ƒ“ƒX‚ª‚ ‚é‚Æ‚«‚¾‚¯ŒÄ‚Ño‚¹‚é
-   // & ‚ÍŽQÆBŽQÆ‚àƒfƒtƒHƒ‹ƒg‚ÅƒCƒ~ƒ…[ƒ^ƒuƒ‹‚È‚Ì‚Å mut ‚ª•K—v
+   // read_line ã¯ãƒ¡ã‚½ãƒƒãƒ‰ã€‚ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒã‚ã‚‹ã¨ãã ã‘å‘¼ã³å‡ºã›ã‚‹
+   // & ã¯å‚ç…§ã€‚å‚ç…§ã‚‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã‚¤ãƒŸãƒ¥ãƒ¼ã‚¿ãƒ–ãƒ«ãªã®ã§ mut ãŒå¿…è¦
    io::stdin().read_line(&mut guess)
-   // read_line ‚Ì–ß‚è’l‚Í io::Result ‚Å expect() ƒƒ\ƒbƒh‚ª’è‹`‚³‚ê‚Ä‚¢‚é
-   // expect(message) ‚ªŒÄ‚Ño‚³‚ê‚é‚Æ panic! ‚ªŒÄ‚Ño‚³‚êI—¹‚·‚é
-   // expect ‚ðŒÄ‚Ño‚³‚È‚¢‚ÆƒRƒ“ƒpƒCƒ‰‚ÍŒx‚ð”­‚·‚é
+   // read_line ã®æˆ»ã‚Šå€¤ã¯ io::Result ã§ expect() ãƒ¡ã‚½ãƒƒãƒ‰ãŒå®šç¾©ã•ã‚Œã¦ã„ã‚‹
+   // expect(message) ãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã¨ panic! ãŒå‘¼ã³å‡ºã•ã‚Œçµ‚äº†ã™ã‚‹
+   // expect ã‚’å‘¼ã³å‡ºã•ãªã„ã¨ã‚³ãƒ³ãƒ‘ã‚¤ãƒ©ã¯è­¦å‘Šã‚’ç™ºã™ã‚‹
               .expect("Failed to read line");
-   // println! ‚Å‚Í {} ‚Åˆø”‚ð‚¤‚¯‚Æ‚é‚±‚Æ‚ª‚Å‚«‚é
+   // println! ã§ã¯ {} ã§å¼•æ•°ã‚’ã†ã‘ã¨ã‚‹ã“ã¨ãŒã§ãã‚‹
    println!("You guessed: {}", guess);
 }
 
-// extern crate ‚Å [dependencies] ‚Å’è‹`‚µ‚½ƒ‰ƒCƒuƒ‰ƒŠ‚ðŽg‚¦‚é
+// extern crate ã§ [dependencies] ã§å®šç¾©ã—ãŸãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’ä½¿ãˆã‚‹
 extern crate rand;
 
 use std::io;
@@ -32,7 +32,7 @@ use rand::Rng;
 
 fn main() {
    println!("Guess the number!");
-   // ƒgƒŒƒCƒg Rng ‚ðƒXƒR[ƒv‚É’u‚­‚±‚Æ‚Åƒƒ\ƒbƒh thread_rng, gen_range ‚ðŽg—p‚Å‚«‚é
+   // ãƒˆãƒ¬ã‚¤ãƒˆ Rng ã‚’ã‚¹ã‚³ãƒ¼ãƒ—ã«ç½®ãã“ã¨ã§ãƒ¡ã‚½ãƒƒãƒ‰ thread_rng, gen_range ã‚’ä½¿ç”¨ã§ãã‚‹
    let secret_number = rand::thread_rng().gen_range(1, 101);
    println!("The secret number is: {}", secret_number);
 
@@ -66,16 +66,16 @@ fn main() {
        .expect("failed to read line");
    println!("You guessed: {}", guess);
 
-   // ƒVƒƒƒh[ƒCƒ“ƒO‚ðŽg‚Á‚Ä’l‚âŒ^‚ðÄ’è‹`‚Å‚«‚é
-   // trim ‚Ås––‚Ì \n ‚ðŽæ‚èœ‚­
-   // parse ‚Í•¶Žš—ñ‚©‚ç”’l‚Ö•ÏŠ·‚·‚é
+   // ã‚·ãƒ£ãƒ‰ãƒ¼ã‚¤ãƒ³ã‚°ã‚’ä½¿ã£ã¦å€¤ã‚„åž‹ã‚’å†å®šç¾©ã§ãã‚‹
+   // trim ã§è¡Œæœ«ã® \n ã‚’å–ã‚Šé™¤ã
+   // parse ã¯æ–‡å­—åˆ—ã‹ã‚‰æ•°å€¤ã¸å¤‰æ›ã™ã‚‹
    let guess: u32 = guess.trim()
                          .parse()
                          .expect("Please type a number!");
    println!("You guessed: {}", guess);
-   // cmp() ”äŠr‰Â”\‚È‚à‚Ì‘S‚Ä‚É‘Î‚µ‚ÄŒÄ‚×‚é
-   // Ordering ‚Í—ñ‹“Œ^
-   // match•¶‚Í’l‚ðŽó‚¯Žæ‚Á‚½ŒãA”CˆÓ‚ÌðŒ‚ÅðŒ•ªŠò‚ðì‚ê‚é
+   // cmp() æ¯”è¼ƒå¯èƒ½ãªã‚‚ã®å…¨ã¦ã«å¯¾ã—ã¦å‘¼ã¹ã‚‹
+   // Ordering ã¯åˆ—æŒ™åž‹
+   // matchæ–‡ã¯å€¤ã‚’å—ã‘å–ã£ãŸå¾Œã€ä»»æ„ã®æ¡ä»¶ã§æ¡ä»¶åˆ†å²ã‚’ä½œã‚Œã‚‹
    match guess.cmp(&secret_number) {
        Ordering::Less    => println!("Too small!"),
        Ordering::Greater => println!("Too big!"),
@@ -102,14 +102,14 @@ fn main() {
 
    println!("The secret number is: {}", secret_number);
 
-   // –³ŒÀƒ‹[ƒv‚Ìì¬
+   // ç„¡é™ãƒ«ãƒ¼ãƒ—ã®ä½œæˆ
    loop {
        println!("Please input your guess.");
        let mut guess = String::new();
        io::stdin().read_line(&mut guess)
            .expect("failed to read line");
 
-       // parse ‚ª enum ‚ð•Ô‹pBmatch•¶‚Å Ok, Err ”»’è‚ð‚·‚é
+       // parse ãŒ enum ã‚’è¿”å´ã€‚matchæ–‡ã§ Ok, Err åˆ¤å®šã‚’ã™ã‚‹
        let guess: u32 = match guess.trim().parse() {
            Ok(num) => num,
            Err(_) => continue,
