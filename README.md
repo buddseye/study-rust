@@ -1,6 +1,6 @@
-# study-rust
+# Rust Shakyo
 
-Rust を勉強した際に要点を追記したもの
+Rust を要点かいつまんで写経したもの
 
 プログラミング言語Rust
-https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/
+https://y-yu.github.io/trpl-2nd-pdf/book.pdf
