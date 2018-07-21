@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # コンパイル
 rustc main.rs
